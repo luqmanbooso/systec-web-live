@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* User palette mapped to semantic tokens */
+    --primary: 252 8% 12%; /* #1c1b20 - dark charcoal (primary text / dark backgrounds) */
+    --primary-foreground: 0 0% 100%; /* white on dark primary */
+
+    --accent: 196 66% 66%; /* #6fc3e2 - light accent */
+    --accent-foreground: 0 0% 0%; /* black on light accent */
+
+    --cta: 196 66% 45%; /* darker accent for CTAs (better contrast) */
+    --cta-foreground: 0 0% 100%;
+
+    --secondary: 175 9% 48%; /* #6f8583 - medium gray */
+    --secondary-foreground: 252 8% 12%;
+
+    --background: 48 20% 90%; /* #eae8e0 - off-white background */
+    --foreground: 252 8% 12%; /* main content text color (dark) */
+
+    --card: 0 0% 100%;
+    --card-foreground: 252 8% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 252 8% 12%;
+
+    --muted: 48 20% 96%;
+    --muted-foreground: 175 9% 48%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 87%;
+    --input: 0 0% 97%;
+    --ring: 196 66% 45%;
+
+    --radius: 0.75rem;
+
+    --font-sans: 'Geist', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'Geist Mono', monospace;
+  }
+
+  .dark {
+    /* Dark mode variants for the same palette */
+    --background: 210 10% 7%; /* very dark background */
+    --foreground: 252 8% 98%; /* light text */
+    --card: 210 10% 12%;
+    --card-foreground: 252 8% 98%;
+    --popover: 210 10% 12%;
+    --popover-foreground: 252 8% 98%;
+    --primary: 252 8% 12%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 175 9% 36%;
+    --secondary-foreground: 252 8% 98%;
+    --muted: 210 10% 15%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 196 66% 66%;
+    --accent-foreground: 201 95% 4%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 10% 20%;
+    --input: 210 10% 20%;
+    --ring: 196 66% 45%;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-white/30 border border-white/20 shadow-lg;
+  }
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/30 border border-white/10 shadow-lg;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .btn-cta {
+    background-color: hsl(var(--cta));
+    color: hsl(var(--cta-foreground));
+  }
+}

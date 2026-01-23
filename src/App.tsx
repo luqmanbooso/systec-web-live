@@ -8,6 +8,7 @@ import { ProcessAndCTA } from '@/components/layout/ProcessAndCTA';
 import MacbookCTA, { HeroScrollDemo } from '@/components/layout/MacbookCTA';
 import { QuoteCTA } from '@/components/layout/QuoteCTA';
 import { Footer } from '@/components/layout/Footer';
+import { ScrollToTop } from '@/components/ui/scroll-to-top';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <QuoteCTA />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

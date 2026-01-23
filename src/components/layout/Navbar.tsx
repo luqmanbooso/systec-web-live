@@ -24,6 +24,19 @@ export const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const scrollToHash = (href: string) => {
+    if (href && href.startsWith('#')) {
+      const el = document.querySelector(href);
+      const nav = document.querySelector('nav');
+      const offset = nav ? nav.getBoundingClientRect().height : 0;
+      if (el) {
+        const top = (el as Element).getBoundingClientRect().top + window.scrollY - offset - 12;
+        window.scrollTo({ top, behavior: 'smooth' });
+        window.history.pushState(null, '', href);
+      }
+    }
+  };
+
   return (
     <nav
       className={cn(
@@ -44,6 +57,12 @@ export const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                if (link.href.startsWith('#')) {
+                  e.preventDefault();
+                  scrollToHash(link.href);
+                }
+              }}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {link.name}
@@ -72,7 +91,13 @@ export const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className="text-lg font-medium text-foreground hover:text-primary"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setIsMobileMenuOpen(false);
+                  if (link.href.startsWith('#')) {
+                    e.preventDefault();
+                    scrollToHash(link.href);
+                  }
+                }}
               >
                 {link.name}
               </a>

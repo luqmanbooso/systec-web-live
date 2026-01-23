@@ -1,35 +1,46 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, FileSearch, Code2, Rocket, ArrowRight } from 'lucide-react';
+import { MessageSquare, FileSearch, Code2, Rocket, ArrowRight, Check, Sparkles, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { StickyScroll } from '../ui/sticky-scroll-reveal';
 
 const steps = [
   {
     title: 'Free Consultation',
     description: 'We discuss your vision, goals, and budget to find the perfect solution.',
     icon: MessageSquare,
+    covered: ['Scope & goals', 'Budget & timeline', 'Success metrics & KPIs'],
   },
   {
     title: 'Detailed Strategy',
     description: 'We map out every feature and user flow to ensure total clarity.',
-    icon: FileSearch,
+    icon: Search,
+    covered: ['MVP definition', 'User journeys', 'Tech stack recommendations'],
   },
   {
     title: 'Precise Development',
     description: 'Our team builds your solution with regular updates and feedback loops.',
     icon: Code2,
+    covered: ['Iterative sprints', 'Automated testing', 'Regular demos & reviews'],
   },
   {
     title: 'Launch & Support',
     description: 'We handle deployment and stay by your side to ensure long-term success.',
     icon: Rocket,
+    covered: ['Deployment & monitoring', 'Post-launch support', 'Performance tuning'],
   },
 ];
 
 export const ProcessAndCTA = () => {
   return (
-    <section id="process" className="py-24 px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="process" className="w-full py-24 relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
+      {/* Decorative full-bleed background */}
+      <div aria-hidden className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute -left-40 -top-40 w-[640px] h-[640px] bg-primary/6 rounded-full blur-3xl animate-blob" />
+        <div className="absolute -right-40 -bottom-40 w-[520px] h-[520px] bg-accent/6 rounded-full blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=60&w=1920')] bg-cover bg-center opacity-6" />
+      </div>
+      <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -50,64 +61,40 @@ export const ProcessAndCTA = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-32">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative text-center"
-            >
-              <div className="w-20 h-20 mx-auto rounded-3xl bg-secondary flex items-center justify-center text-primary mb-6 relative z-10">
-                <step.icon className="w-10 h-10 text-white" />
-                <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-background border flex items-center justify-center text-xs font-bold text-muted-foreground shadow-sm">
-                  {index + 1}
+        {/* Sticky scroll reveal version of the process steps (full-bleed) */}
+        <div className="-mx-6 px-6 w-full">
+          <StickyScroll
+            content={steps.map((step) => ({
+              title: step.title,
+              description: step.description,
+              content: (
+                <div className="flex h-full w-screen items-center justify-center">
+                  <div className="flex flex-col items-start justify-center gap-4 p-6 h-full w-full">
+                  <div className="w-36 h-36 rounded-2xl flex items-center justify-center  mt-4">
+                      <step.icon className="w-16 h-16 text-green-900" />
+                    </div>
+                 
+                    <div className="mt-3 w-full">
+                      <h4 className="text-sm font-semibold text-slate-800 mb-3">What we cover</h4>
+                      <ul className="space-y-2">
+                        {step.covered?.map((item, idx) => (
+                          <li key={item + idx} className="flex items-center gap-3 text-sm text-slate-700">
+                            <Check className="w-4 h-4 text-primary" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <h4 className="font-bold text-xl mb-4">{step.title}</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
-              
-              {/* Connector line for desktop */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-border border-dashed border-t" />
-              )}
-            </motion.div>
-          ))}
+              ),
+            }))}
+            contentClassName="rounded-xl"
+          />
         </div>
 
         {/* Final CTA Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative rounded-[3rem] bg-secondary/50 border p-12 md:p-24 overflow-hidden text-center"
-        >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
-          
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <h3 className="text-4xl md:text-6xl font-serif font-bold mb-8 tracking-tight">
-              Ready to <span className="text-primary">Illuminate</span> Your Business?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              Let's build something exceptional together. Our team is ready to provide 
-              a free consultation and a transparent quote customized to your vision.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button size="lg" className="rounded-full h-16 px-12 text-xl font-bold shadow-xl shadow-primary/20 group">
-                Request Free Quote
-                <ArrowRight className="ml-2 w-6 h-6 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <a href="mailto:hello@brighterlaunchpad.com" className="text-lg font-bold hover:text-primary transition-colors">
-                Or send us an email
-              </a>
-            </div>
-          </div>
-        </motion.div>
+    
       </div>
     </section>
   );

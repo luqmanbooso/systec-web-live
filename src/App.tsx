@@ -5,7 +5,8 @@ import { WhatWeBuild } from '@/components/layout/WhatWeBuild';
 import { Pricing } from '@/components/layout/Pricing';
 import { AboutAndWhy } from '@/components/layout/AboutAndWhy';
 import { ProcessAndCTA } from '@/components/layout/ProcessAndCTA';
-import { Contact } from '@/components/layout/Contact';
+import MacbookCTA, { HeroScrollDemo } from '@/components/layout/MacbookCTA';
+import { QuoteCTA } from '@/components/layout/QuoteCTA';
 import { Footer } from '@/components/layout/Footer';
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
         <WhatWeBuild />
         <Pricing />
         <AboutAndWhy />
-        <ProcessAndCTA />
-        <Contact />
+        <ProcessAndCTA  />
+        <MacbookCTA />
+        <QuoteCTA />
       </main>
       <Footer />
     </div>

@@ -47,7 +47,7 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center gap-2 group">
-          <img src="/systecweb.png" alt="Systec Web" className="w-full h-10  rounded-xl object-cover transition-transform group-hover:scale-110" />
+          <img src="/systecweb.svg" alt="Systec Web" className="w-full h-10 rounded-xl object-cover transition-transform group-hover:scale-110" />
           <span className="text-xl font-bold font-serif tracking-tight text-foreground">
           </span>
         </a>

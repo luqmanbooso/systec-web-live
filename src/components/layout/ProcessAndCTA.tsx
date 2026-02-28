@@ -75,7 +75,7 @@ export const ProcessAndCTA = () => {
                     </div>
                  
                     <div className="mt-3 w-full">
-                      <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">What we cover</h4>
+                      <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">What we cover</h3>
                       <ul className="space-y-2">
                         {step.covered?.map((item, idx) => (
                           <li key={item + idx} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">

@@ -29,18 +29,21 @@ export const Footer = () => {
           <div className="flex gap-4">
             <a
               href="#"
+              aria-label="Twitter"
               className="p-2 rounded-full bg-background border hover:text-primary transition-colors"
             >
               <Twitter className="w-4 h-4" />
             </a>
             <a
               href="#"
+              aria-label="LinkedIn"
               className="p-2 rounded-full bg-background border hover:text-primary transition-colors"
             >
               <Linkedin className="w-4 h-4" />
             </a>
             <a
               href="#"
+              aria-label="GitHub"
               className="p-2 rounded-full bg-background border hover:text-primary transition-colors"
             >
               <Github className="w-4 h-4" />
@@ -49,7 +52,7 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold mb-6">Services</h4>
+          <h3 className="font-bold mb-6">Services</h3>
           <ul className="space-y-4 text-sm text-muted-foreground">
             <li>
               <a href="#" className="hover:text-primary transition-colors">
@@ -75,7 +78,7 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold mb-6">Company</h4>
+          <h3 className="font-bold mb-6">Company</h3>
           <ul className="space-y-4 text-sm text-muted-foreground">
             <li>
               <a href="#" className="hover:text-primary transition-colors">
@@ -106,7 +109,7 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold mb-6">Contact</h4>
+          <h3 className="font-bold mb-6">Contact</h3>
           <ul className="space-y-4 text-sm text-muted-foreground">
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-primary" />

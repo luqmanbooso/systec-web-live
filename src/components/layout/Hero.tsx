@@ -13,7 +13,7 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
-        <div className="absolute min-h-screen inset-0 bg-[url('https://images.unsplash.com/photo-1580894894513-541e068a3e2b?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-[0.03]" />
+        <div className="absolute min-h-screen inset-0 bg-[url('https://images.unsplash.com/photo-1580894894513-541e068a3e2b?auto=format&fit=crop&q=60&w=1920')] bg-cover bg-center opacity-[0.03]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
